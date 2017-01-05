@@ -9,6 +9,7 @@
   </head>
 
   <body>
+  <div id="Flex-content-container">
     <nav class="navbar navbar-dark bg-inverse">
       <button class="navbar-toggler hidden-lg-up" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"></button>
       <div class="collapse navbar-toggleable-md" id="navbarResponsive">
@@ -33,5 +34,15 @@
     <% end %>
 
     <%= yield %>
+    </div>
+
+    <div id="footer">
+      <div class="containter">
+        <b>Footer here</b>
+        <br />
+        <%= link_to 'Link', '#'%>
+      </div>
+    </div>
+
   </body>
 </html>
