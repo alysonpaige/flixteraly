@@ -10,24 +10,20 @@
 
   <body>
   <div id="Flex-content-container">
-    <nav class="navbar navbar-dark bg-inverse">
-      <button class="navbar-toggler hidden-lg-up" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"></button>
-      <div class="collapse navbar-toggleable-md" id="navbarResponsive">
-        <a class="navbar-brand" href="#">FlixterAly</a>
-        <ul class="nav navbar-nav">
+    <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse">
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a class="navbar-brand" href="#">FlixterAly</a>
+
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+        <ul class="navbar-nav mr-auto mt-2 mt-md-0">
           <li class="nav-item">
-            <%= link_to 'See All Courses', courses_path %>
+            <a class="nav-link" href="#">Link</a>
           </li>
         </ul>
-        <ul class="nav navbar-nav float-lg-right">
-          <% if user_signed_in? %>
-            <li class="nav-item"><%= link_to 'Sign out', destroy_user_session_path, method: :delete %></li>
-          <% else %>
-            <li class="nav-item"><%= link_to 'Sign in', new_user_session_path %></li>
-            <li class="nav-item"><%= link_to 'Sign up', new_user_registration_path %></li>
-          <% end %>
-        </ul>
       </div>
+    </nav>
     </nav>
 
     <% if notice.present? %>
