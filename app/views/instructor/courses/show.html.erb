@@ -43,13 +43,19 @@
   <ul class="sections">
     <% current_course.sections.rank(:row_order).each do |section| %>
       <li data-update-url="<%= instructor_section_path(section) %>" class="section-li">
-      <div class="header">
-        <span class="fa fa-list"></span>
-        <%= section.title %>
-      </div>
-        <%= link_to 'New Lesson', new_instructor_section_lesson_path(section), class: 'float-right btn btn-primary btn-xs' %>
+        <div class="header">
+          <span class="fa fa-list"></span>
+          <%= section.title %>
+        </div>
+
+      <!-- Button trigger modal -->
+      <button type="button" class="btn btn-primary btn-lg float-right" data-toggle="modal" data-target="#newLessonModal">
+        New Lesson...
+      </button>
+
         <br class="clr" />
         <br class="clr" />
+
         <ul class="lessons">
           <% section.lessons.rank(:row_order).each do |lesson| %>
             <li data-update-url="<%= instructor_lesson_path(lesson) %>">
@@ -100,4 +106,27 @@
     </div>
   </div>
 
+<!-- Modal -->
+<div class="modal fade" id="newLessonModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="newLessonModalLabel">Add a new lesson</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <%= simple_form_for @lesson, url: "#" do |f| %>
+        <div class="modal-body">
+          <%= f.input :title %>
+          <%= f.input :subtitle %>
+          <%= f.input :video %>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <%= f.submit "Add the lesson" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
 </div>
