@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'static_pages#index'
   get 'privacy', to: 'static_pages#privacy'
+  get 'about', to: 'static_pages#about'
+  get 'team', to: 'static_pages#team'
+  get 'careers', to: 'static_pages#careers'
   resources :courses, only: [:index, :show] do
     resources :enrollments, only: :create
   end
